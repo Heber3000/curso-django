@@ -4,11 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+django = "*"
 
 [dev-packages]
 flake8 = "*"
 codecov = "*"
-django = "*"
 
 [requires]
 python_version = "3.11"
