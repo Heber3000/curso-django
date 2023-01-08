@@ -36,7 +36,7 @@ jobs:
           pipenv sync --dev
       - name: Lint with flake8
         run: |
-          pipenv run codecov --dev
+          pipenv run flake8 --dev
       - name: Test with pytest
         run: |
 
