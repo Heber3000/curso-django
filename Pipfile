@@ -9,6 +9,8 @@ django = "*"
 [dev-packages]
 django = "*"
 flake8 = "*"
+codecov = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.11"
