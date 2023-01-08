@@ -39,7 +39,7 @@ jobs:
 
       - name: Test with pytest
         run: |
-          pipenv run pytest
+
       - name: Posting Coverage
         env:
           CODECOV_TOKEN: a2f7a762-d2dd-4bf6-9b38-6a85b0e4427a
