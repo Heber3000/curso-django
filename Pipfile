@@ -12,6 +12,7 @@ gunicorn = "*"
 flake8 = "*"
 codecov = "*"
 pytest = "*"
+pytest-django = "*"
 
 [requires]
 python_version = "3.11"
