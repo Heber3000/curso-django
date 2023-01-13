@@ -32,15 +32,18 @@ jobs:
         run: |
       - name: Install dependencies
         run: |
-
+          pip install pipenv
+          pipenv sync --dev
+          cp contrib/env-sample .env
       - name: Lint with flake8
         run: |
 
       - name: Test with pytest
         run: |
-
+          pipenv run pytest --cov=pypro
       - name: Posting Coverage
         env:
           CODECOV_TOKEN: a2f7a762-d2dd-4bf6-9b38-6a85b0e4427a
         run: |
+          pipenv run codecov
 
