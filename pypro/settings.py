@@ -9,10 +9,14 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os.path
+from functools import partial
 from pathlib import Path
 
 import decouple
+
+
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-de#mm+l6j#uk712@(g5)-)jh4hx2o#klz%q$jc1o+)l)&(8+s4'
+SECRET_KEY = decouple.config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = decouple.config('DEBUG',cast=bool)
+DEBUG = decouple.config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*'] # Assim que terminar o curso e fazer deploy adicionar os dominios.
 
 
 # Application definition
@@ -76,11 +80,15 @@ WSGI_APPLICATION = 'pypro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+default_db_url ='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+
+parse_datebase = partial(dj_database_url.parse,conn_max_age =600)
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': decouple.config('DATABASE_URL', default=default_db_url, cast=parse_datebase)
+
 }
 
 
