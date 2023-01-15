@@ -30,11 +30,11 @@ jobs:
           python-version: '3.11'
       - name: Copying configurations
         run: |
+          cp contrib/env-sample .env
       - name: Install dependencies
         run: |
           pip install pipenv
           pipenv sync --dev
-          cp contrib/env-sample .env
       - name: Lint with flake8
         run: |
 
