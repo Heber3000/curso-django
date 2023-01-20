@@ -34,10 +34,12 @@ DEBUG = decouple.config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['*'] # Assim que terminar o curso e fazer deploy adicionar os dominios.
 
+AUTH_USER_MODEL = 'base.User'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'pypro.base',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
