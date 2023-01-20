@@ -33,12 +33,17 @@
             "version": "==1.26.52"
         },
         "botocore": {
+
+            "hashes": [],
+            "version": "==1.29.53"
+=======
             "hashes": [
                 "sha256:a0b89a33305cfa6251c6e1142deb7567e216e37e25363159f45fb81dc5b474e5",
                 "sha256:de55b6333fb13c66da9055972d7e4efff5dcc5a087478a2b70e99d888b29a24c"
             ],
             "markers": "python_version >= '3.7'",
             "version": "==1.29.52"
+
         },
         "collectfast": {
             "hashes": [
